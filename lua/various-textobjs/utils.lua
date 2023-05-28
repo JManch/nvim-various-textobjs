@@ -1,5 +1,4 @@
 local M = {}
---------------------------------------------------------------------------------
 
 M.getCursor = vim.api.nvim_win_get_cursor
 M.setCursor = vim.api.nvim_win_set_cursor
@@ -18,9 +17,7 @@ end
 ---equivalent to fn.getline(), but using more efficient nvim api
 ---@param lnum integer
 ---@return string
-function M.getline(lnum)
-	return vim.api.nvim_buf_get_lines(0, lnum - 1, lnum, true)[1]
-end
+function M.getline(lnum) return vim.api.nvim_buf_get_lines(0, lnum - 1, lnum, true)[1] end
 
 ---notification when no textobj could be found
 ---@param lookForwL integer number of lines the plugin tried to look forward
@@ -30,6 +27,4 @@ function M.notFoundMsg(lookForwL)
 	vim.notify(msg, vim.log.levels.WARN)
 end
 
-
---------------------------------------------------------------------------------
 return M
